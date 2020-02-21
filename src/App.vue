@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <TheVNavbar :routes="routes" />
+    <div id="body">
+      <router-view></router-view>
     </div>
-    <router-view />
   </div>
 </template>
+
+<script>
+import TheVNavbar from '@/components/TheVNavbar.vue'
+import { routes } from '@/router'
+export default {
+  components: {
+    TheVNavbar
+  },
+  data: function() {
+    return { routes }
+  }
+}
+</script>
 
 <style>
 #app {
@@ -17,16 +29,9 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#body {
+  width: 60%;
+  margin-bottom: 10px;
+  margin: auto;
 }
 </style>
