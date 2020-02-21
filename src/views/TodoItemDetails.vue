@@ -2,11 +2,12 @@
   <div class="todo-item-details">
     <h1>{{ item.title }}</h1>
     <p>{{ item.description }}</p>
-    <ol v-if="item.comments.length > 0">
-      <li v-for="(idx, comment) in item.comments" :key="idx">
+    <div v-if="item.comments.length > 0">
+      <h5>Comments</h5>
+      <p v-for="(comment, idx) in item.comments" :key="idx">
         {{ comment }}
-      </li>
-    </ol>
+      </p>
+    </div>
     <p v-else>No comments on this item</p>
     <b-button variant="primary">Add Comment</b-button>
   </div>
